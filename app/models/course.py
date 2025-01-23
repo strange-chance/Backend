@@ -1,12 +1,7 @@
 from pydantic import BaseModel
 from typing import List
-from sqlalchemy import Column, Integer, String
+from app.models.place import PlaceSchema 
 from app.db.session import Base
-
-# 장소 모델
-class Place(BaseModel):
-    name: str  # 장소 이름
-    cost: int  # 장소 비용
 
 # 코스 요청 모델
 class CourseRequest(BaseModel):
@@ -15,4 +10,4 @@ class CourseRequest(BaseModel):
     participants: int  # 참여 인원
     days: int  # 여행 기간
     preferences: dict  # 사용자 선호 옵션
-    stops: List[Place]  # 경유지 목록
+    stops: List[PlaceSchema]  # 경유지 목록
